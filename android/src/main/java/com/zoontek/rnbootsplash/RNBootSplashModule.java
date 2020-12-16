@@ -4,8 +4,8 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.content.Context;
-import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.LinearLayout;
@@ -64,9 +64,10 @@ public class RNBootSplashModule extends ReactContextBaseJavaModule implements Li
   private static LinearLayout getLayout(@NonNull Activity activity, LayoutParams params) {
     Context context = activity.getApplicationContext();
     LinearLayout layout = new LinearLayout(context);
-    View view = new View(context);
+    ImageView view = new ImageView(context);
 
-    view.setBackgroundResource(mDrawableResId);
+    view.setImageResource(mDrawableResId);
+    view.setScaleType(ImageView.ScaleType.CENTER_CROP);
     layout.setId(R.id.bootsplash_layout_id);
     layout.setLayoutTransition(null);
     layout.setOrientation(LinearLayout.VERTICAL);
